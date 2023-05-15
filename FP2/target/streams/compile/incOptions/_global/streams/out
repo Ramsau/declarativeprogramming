@@ -1,0 +1,10 @@
+[debug] Created transactional ClassFileManager with tempDir = /home/christoph/Documents/declarativeprogramming/FP2/target/scala-2.13/classes.bak
+[debug] About to delete class files:
+[debug] 	FP2Exercise.class
+[debug] We backup class files:
+[debug] 	FP2Exercise.class
+[debug] Rolling back changes to class files.
+[debug] Removing generated classes:
+[debug] Restoring class files: 
+[debug] 	FP2Exercise.class
+[debug] Removing the temporary directory used for backing up class files: /home/christoph/Documents/declarativeprogramming/FP2/target/scala-2.13/classes.bak

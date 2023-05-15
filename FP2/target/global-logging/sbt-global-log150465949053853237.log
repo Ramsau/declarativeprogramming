@@ -1,0 +1,21 @@
+[debug] > Exec(__runWatch console0, Some(df126bd7-7952-46b7-8e00-50b29733f3b0), Some(CommandSource(console0)))
+[debug] > Exec(sbtStashOnFailure, None, Some(CommandSource(console0)))
+[debug] > Exec(__preWatch console0, None, Some(CommandSource(console0)))
+[debug] > Exec(run, None, Some(CommandSource(console0)))
+[debug] Evaluating tasks: Compile / run
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 3 Scala sources to /home/christoph/Documents/declarativeprogramming/FP2/target/scala-2.13/classes ...
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:17:12: '=>' expected but ':' found.
+[error]     case 0 : 0
+[error]            ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:23:14: '=>' expected but ':' found.
+[error]       case 0 : n2
+[error]              ^
+[error] two errors found
+[error] (Compile / compileIncremental) Compilation failed
+[error] Total time: 0 s, completed Mar 29, 2023, 11:50:39 AM
+[debug] > Exec(resumeFromFailure, None, Some(CommandSource(console0)))
+[debug] > Exec(sbtPopOnFailure, None, Some(CommandSource(console0)))
+[debug] > Exec(__postWatch console0, None, Some(CommandSource(console0)))
+[debug] > Exec(resumeFromFailure, None, None)
+[debug] > Exec(__waitWatch console0, None, None)

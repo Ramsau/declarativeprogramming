@@ -1,0 +1,9 @@
+[debug] Packaging /home/christoph/Documents/declarativeprogramming/FP2/target/scala-2.13/fp2_2.13-0.1.0-SNAPSHOT.jar ...
+[debug] Input file mappings:
+[debug] 	FP2ExercisesProblems.class
+[debug] 	  /home/christoph/Documents/declarativeprogramming/FP2/target/scala-2.13/classes/FP2ExercisesProblems.class
+[debug] 	FP2Exercise.class
+[debug] 	  /home/christoph/Documents/declarativeprogramming/FP2/target/scala-2.13/classes/FP2Exercise.class
+[debug] 	FP2Solution.class
+[debug] 	  /home/christoph/Documents/declarativeprogramming/FP2/target/scala-2.13/classes/FP2Solution.class
+[debug] Done packaging.

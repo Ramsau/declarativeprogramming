@@ -1,0 +1,87 @@
+[debug] > Exec(__runWatch console0, Some(7b8e7a83-a205-411b-87a7-18ce7da65229), Some(CommandSource(console0)))
+[debug] > Exec(sbtStashOnFailure, None, Some(CommandSource(console0)))
+[debug] > Exec(__preWatch console0, None, Some(CommandSource(console0)))
+[debug] > Exec(run, None, Some(CommandSource(console0)))
+[debug] Evaluating tasks: Compile / run
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Scala source to /home/christoph/Documents/declarativeprogramming/FP2/target/scala-2.13/classes ...
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:15:3: expected class or object definition
+[error]   def fib(a : Int) : Int = a match {
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:20:3: expected class or object definition
+[error]   def fibTail(a : Int) : Int = {
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:38:3: expected class or object definition
+[error]   def range(from : Int, to : Int) : List[Int] = {
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:55:3: expected class or object definition
+[error]   def rangeTail(from : Int, to : Int) : List[Int] = {
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:69:3: expected class or object definition
+[error]   def flatten(l : List[List[Int]]) : List[Int] = l match {
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:83:3: expected class or object definition
+[error]   def flattenTail(l: List[List[Int]]): List[Int]
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:97:3: expected class or object definition
+[error]   def unzip(pairList : List[(Int, Int)]) : (List[Int], List[Int])
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:114:3: expected class or object definition
+[error]   def integerMap(a : Int, f: Int => Int) : Boolean
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:124:3: expected class or object definition
+[error]   def isAscending(l:List[Int]): Boolean
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:135:3: expected class or object definition
+[error]   def dotProduct(a_vec: List[Int], b_vec: List[Int]): Int
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:146:3: expected class or object definition
+[error]   def bitwiseAnd(a: List[Int], b: List[Int]): List[Int]
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:159:3: expected class or object definition
+[error]   def bitwiseRightShift(l: List[Int], count: Int): List[Int]
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:188:3: expected class or object definition
+[error]   def mse(measured : List[Double], target : List[Double]) : Double
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:200:3: expected class or object definition
+[error]   def absList(list: List[Int]): List[Int]
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:213:3: expected class or object definition
+[error]   def absListFold(list: List[Int]): List[Int]
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:227:3: expected class or object definition
+[error]   def keepPositive(list: List[Int]): List[Int]
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:242:3: expected class or object definition
+[error]   def keepPositiveFold(list: List[Int]): List[Int]
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:254:3: expected class or object definition
+[error]   def maxInPairs(pairs : List[(Int,Int)]) : List[Int]
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:255:3: expected class or object definition
+[error]   def maxInPairsTail(pairs : List[(Int,Int)]) : List[Int]
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:271:3: expected class or object definition
+[error]   def countChange(money: Int, coins: List[Int]): Int
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:284:3: expected class or object definition
+[error]   def checkEvenEven(l: List[Int]): Boolean
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:298:3: expected class or object definition
+[error]   def takeWhile(list: List[Int], pred: Int => Boolean): List[Int]
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:311:3: expected class or object definition
+[error]   def hasRoot(start : Int, end : Int, f : Int => Int): Boolean
+[error]   ^
+[error] /home/christoph/Documents/declarativeprogramming/FP2/src/main/scala/FP2Exercise.scala:324:3: expected class or object definition
+[error]   def fill(start : Int, end : Int, f : Int => Int) : List[Int]
+[error]   ^
+[error] 24 errors found
+[error] (Compile / compileIncremental) Compilation failed
+[error] Total time: 0 s, completed Mar 29, 2023, 5:04:42 PM
+[debug] > Exec(resumeFromFailure, None, Some(CommandSource(console0)))
+[debug] > Exec(sbtPopOnFailure, None, Some(CommandSource(console0)))
+[debug] > Exec(__postWatch console0, None, Some(CommandSource(console0)))
+[debug] > Exec(resumeFromFailure, None, None)
+[debug] > Exec(__waitWatch console0, None, None)
