@@ -5,7 +5,8 @@
 % Using the inductive definition of natural numbers via the functor s for the parameter N, define a
 % predicate len_nat(L,N) that is true if N is the length of the list L.
 
-% len_nat(L, N) :- ?
+len_nat(0, []).
+len_nat(N, [_ | T]) :- N1 is N - 1, len_nat(N1, T).
 
 
 
@@ -24,7 +25,11 @@
 % Define a predicate fill(N,E,L) which is true if L is a list of length N consisting of elements of
 % the value E.
 
-% fill(N, E, L) :- ?
+fill(0, _, []).
+fill(N, E, [Lh | Lt]) :-
+    N1 is N - 1,
+    Lh is E,
+    fill(N1, E, Lt).
 
 
 
@@ -51,7 +56,12 @@
 % multiply_list(2, [1,2], [1,1,2,2]) should be answered with true.
 % Hint: Use the predicate fill to create repeated elements.
 
-% multiply_list(M, L, R) :- ?
+multiply_list(_, [], []).
+multiply_list(M, [Lh | Lt], Res) :-
+    fill(M, Lh, MLh),
+    multiply_list(M, Lt, R),
+    append(MLh, R, Res).
+
 
 
 

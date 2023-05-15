@@ -52,7 +52,7 @@ sibling(Person, Sibling) :- parent(Parent, Person), parent(Parent, Sibling), Per
 % Based on the given family tree, define a predicate grandmother(X,Y), that evaluates to true if X
 % is the grandmother of Y.
 
-% grandmother(GMother, GChild) :- ?
+grandmother(GMother, GChild) :- mother(GMother, Person), parent(Person, GChild).
 
 
 
@@ -72,7 +72,7 @@ sibling(Person, Sibling) :- parent(Parent, Person), parent(Parent, Sibling), Per
 % Based on the given family tree, define a predicate cousin(X,Y) definieren, that evaluates to true
 % if X is the cousin of Y.
 
-% cousin(Cousin, Person) :- ?
+% cousin(Cousin, Person) :-
 
 
 
@@ -80,7 +80,8 @@ sibling(Person, Sibling) :- parent(Parent, Person), parent(Parent, Sibling), Per
 % Definieren Sie ein Praedikat ancestor(X,Y), das wahr ist, wenn X ein Vorfahre von Y ist.
 % Define a predicate ancestor(X,Y) that evaluates to true if X is an ancestor of y.
 
-% ancestor(Anc, Person):- ?
+ancestor(Anc, Person):- parent(Anc, Person).
+ancestor(Anc, Person):- ancestor(Anc, X), parent(X, Person).
 
 
 
@@ -94,7 +95,8 @@ nat(s(X)) :- nat(X).
 % Using the inductive definition of natural numbers via the functor s, define a predicate
 % lessEq(X,Y) that is true if X is less or equal to Y.
 
-% lessEq(X, Y) :- ?
+lessEq(X, _Y) :- X = 0.
+lessEq(s(X), s(Y)) :- lessEq(X, Y).
 
 
 
@@ -184,7 +186,15 @@ add(A, s(B), s(C)) :- add(A, B, C).
 % Using the built-in integers, define a predicate fib(N,F) which is true if F is the Nth Fibonacci
 % number.
 
-% fib(N, F) :- ?
+fib(N, F) :- N is 1, F is 0.
+fib(N, F) :- N is 2, F is 1.
+fib(N, F) :-
+    N > 0,
+    N1 is N - 1,
+    N2 is N - 2,
+    fib(N1, F1),
+    fib(N2, F2),
+    F is F1 + F2.
 
 
 
@@ -204,4 +214,3 @@ add(A, s(B), s(C)) :- add(A, B, C).
 %% F = 0 ; F = 1 ; F = 1 ; F = 2 ; F = 3 ; F = 5 ; F = 8 ; false.
 %
 
-% fibL(N, F) :- ?
