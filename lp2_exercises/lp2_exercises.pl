@@ -15,6 +15,11 @@ len_nat(N, [_ | T]) :- N1 is N - 1, len_nat(N1, T).
 % (des eingebaute Datentyps) ist.
 % Define a predicate sorted(L) that is true if L is a sorted list of (built-in) integers.
 
+sorted([]).
+sorted([_]).
+sorted([A | [B | T]]):-
+    (A < B ; A = B),
+    sorted([B | T]).
 % sorted(L) :- ?
 
 
@@ -42,6 +47,9 @@ fill(N, E, [Lh | Lt]) :-
 % the value E. Use the inductive definition of natural numbers to encode N. A query like
 % fill_unary(N, 1, L) should compute instantiations for N and L, such as: N = s(0) and L = [1].
 
+fill_unary(0, _, []).
+fill_unary(s(Len), E, [E|Lt]):-
+    fill_unary(Len, E, Lt).
 % fill_unary(N, E, L) :- ?
 
 
@@ -79,6 +87,12 @@ multiply_list(M, [Lh | Lt], Res) :-
 % query like multiply_list_unary(M, [1,2], R).
 % Hint: Use the predicate fill_unary to create repeated elements.
 
+multiply_list_unary(0, _, []).
+multiply_list_unary(_, [], []).
+multiply_list_unary(M, [Lh | Lt], R):-
+    fill_unary(M, Lh, Rh),
+    multiply_list_unary(M, Lt, Rt),
+    append(Rh, Rt, R).
 % multiply_list_unary(M, L, R) :- ?
 
 
@@ -90,6 +104,15 @@ multiply_list(M, [Lh | Lt], Res) :-
 % Define a predicate removeDup(L,R) which is true if the list R contains all Elements of the list L
 % without consecutive duplicates. The order of the individual elements has to be the same.
 
+removeDup([], []).
+removeDup([X], [X]).
+removeDup([H | [Lth | Lt]], [H | Rt]):-
+    H =\= Lth,
+    removeDup([Lth | Lt], Rt).
+
+removeDup([H | [Lth | Lt]], [H | Rt]):-
+    H =:= Lth,
+    removeDup([Lth | Lt], [H | Rt]).
 % removeDup(L, R) :- ?
 
 
@@ -152,6 +175,11 @@ multiply_list(M, [Lh | Lt], Res) :-
 % Define a Praedikat count(L,E,N) that is true if the list L contains the value E N-times. Use the
 % inductively defined natural numbers via the functor s to encode N.
 
+count([], _, 0).
+count([E | T], E, s(N)):- count(T, E, N).
+count([H | T], E, N):-
+    H \= E,
+    count(T, E, N).
 % count(L, E, N) :- ?
 
 

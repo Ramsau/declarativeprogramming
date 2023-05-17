@@ -51,8 +51,7 @@ sibling(Person, Sibling) :- parent(Parent, Person), parent(Parent, Sibling), Per
 % das wahr ist, wenn X die Grossmutter von Y ist.
 % Based on the given family tree, define a predicate grandmother(X,Y), that evaluates to true if X
 % is the grandmother of Y.
-
-grandmother(GMother, GChild) :- mother(GMother, Person), parent(Person, GChild).
+grandmother(Gmother, Gchild):- mother(Gmother, Parent), parent(Parent, Gchild).
 
 
 
@@ -62,6 +61,14 @@ grandmother(GMother, GChild) :- mother(GMother, Person), parent(Person, GChild).
 % Based on the given family tree, define a predicate brother_in_law(X,Y), that is true if X is the
 % brother in law of Y.
 
+brother(Brother, Sibling):- male(Brother), sibling(Brother, Sibling).
+
+is_brother_in_law(BrotherIL, Person):-
+    brother(BrotherIL, Spouse),
+    married(Spouse, Person).
+
+brother_in_law(BrotherIL, Person):- is_brother_in_law(BrotherIL, Person).
+brother_in_law(BrotherIL, Person):- is_brother_in_law(Person, BrotherIL).
 % brother_in_law(BrotherIL, Person) :- ?
 
 
@@ -71,7 +78,10 @@ grandmother(GMother, GChild) :- mother(GMother, Person), parent(Person, GChild).
 % wahr ist, wenn X die Cousine/der Cousin von Y ist.
 % Based on the given family tree, define a predicate cousin(X,Y) definieren, that evaluates to true
 % if X is the cousin of Y.
+grandfather(Gfather, Person):- father(Gfather, Father), father(Father, Person).
 
+cousin(Cousin, Person):- grandmother(Gmother, Cousin), grandmother(Gmother, Person), Cousin\=Person.
+cousin(Cousin, Person):- grandfather(Gfather, Cousin), grandfather(Gfather, Person), Cousin\=Person.
 % cousin(Cousin, Person) :-
 
 
@@ -107,6 +117,10 @@ lessEq(s(X), s(Y)) :- lessEq(X, Y).
 % which is true if Z is the maximum of X and Y.
 
 % max(X, Y, Z) :- ?
+max(0, X, X).
+max(X, 0, X).
+max(s(X), s(Y), s(X)):- max(X, Y, X).
+max(s(X), s(Y), s(Y)):- max(X, Y, Y).
 
 
 
@@ -136,6 +150,8 @@ edge(d, e, 0).
 add(A, 0, A).
 add(A, s(B), s(C)) :- add(A, B, C).
 
+cost(X, X, 0).
+cost(X, Y, C):- edge(X, Z, Cstep), cost(Z, Y, Crest), add(Cstep, Crest, C).
 % cost(X, Y, C) :- ?
 
 
@@ -158,6 +174,21 @@ add(A, s(B), s(C)) :- add(A, B, C).
 % Using the built-in integers, define a predicate sum_divisible(Div,From, To, Result) which is true
 % if Result is the sum of the integers between From and To that are divisible by Div.
 
+sum_divisible(_, From, From, 0).
+sum_divisible(Div, From, To, Result):-
+    Div =\= 0,
+    From < To,
+    From mod Div =:= 0,
+    From1 is From + 1,
+    Result1 is Result - From,
+    sum_divisible(Div, From1, To, Result1).
+
+sum_divisible(Div, From, To, Result):-
+    Div =\= 0,
+    From < To,
+    From mod Div =\= 0,
+    From1 is From + 1,
+    sum_divisible(Div, From1, To, Result).
 % sum_divisible(Div, From, To, Result) :- ?
 
 

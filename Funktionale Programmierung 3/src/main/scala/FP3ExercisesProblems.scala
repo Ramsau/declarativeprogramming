@@ -1,7 +1,7 @@
 import scala.annotation.tailrec
 import scala.collection.immutable.::
 
-trait FP3ExercisesProblems {
+//trait FP3ExercisesProblems {
 
   /**
    * Implement a function that takes an integer @param a and returns a function
@@ -204,4 +204,4 @@ trait FP3ExercisesProblems {
    * @return largest element
    */
   def max(l : List[Int]) : Int
-}
+//}
